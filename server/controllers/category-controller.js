@@ -8,7 +8,7 @@ exports.createCategory = async (req, res) => {
     if (isCategoryExist !== null) {
       return res
         .status(500)
-        .json({ error: "There is already a category with this name" });
+        .json({ error: "Ya existe una categoría con ese nombre." });
     }
     category = category.charAt(0).toUpperCase() + category.slice(1);
 
@@ -18,33 +18,34 @@ exports.createCategory = async (req, res) => {
     await newCategory.save();
     res
       .status(201)
-      .json({ success: true, message: "Category created successfully" });
+      .json({ success: true, message: "Categoría creada de forma exitosa." });
   } catch (error) {
-    res.status(500).json({ error: "Failed to create category" });
+    res.status(500).json({ error: "Error al crear la categoría." });
   }
 };
+
 exports.createSubcategory = async (req, res) => {
   const { category, subcategory } = req.body;
 
   try {
     const existingCategory = await CategoryModel.findOne({ category });
     if (!existingCategory) {
-      return res.status(404).json({ message: "Category not found" });
+      return res.status(404).json({ message: "Categoría no encontrada." });
     }
     const existingSubCategory = await CategoryModel.findOne({ subcategory });
     if (existingSubCategory !== null) {
       return res
         .status(500)
-        .json({ message: "There is already a subcategory with this name" });
+        .json({ message: "Ya existe una subcategoría con ese nombre." });
     }
 
     existingCategory.subcategory.push(subcategory);
     await existingCategory.save();
-    res.status(200).json({ message: "Subcategory created successfully" });
+    res.status(200).json({ message: "Subcategoría creada de forma exitosa." });
   } catch (error) {
     res
       .status(500)
-      .json({ message: "Failed to create subcategory", error: error.message });
+      .json({ message: "Error al crear la categoría.", error: error.message });
   }
 };
 exports.getAllCategories = async (req, res) => {

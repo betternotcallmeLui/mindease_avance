@@ -1,0 +1,128 @@
+.me_signupPage {
+    width: 100%;
+}
+
+.signupPage {
+    max-width: calc(1080px + 32px);
+    margin: 0 auto;
+    padding: 100px 16px;
+}
+
+.signupPage_container {
+    display: flex;
+    flex-direction: row;
+}
+
+.signupPage_container_right {
+    min-width: 540px;
+    padding: 56px 48px;
+    
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+}
+
+.signupPage_title {
+    padding-bottom: 20px;
+    padding-right: 20px;
+    padding-left: 20px;
+    
+    font-size: 24px;
+    font-weight: 600;
+    letter-spacing: -0.2px;
+}
+
+.signupPage_inputContainer {
+    padding-top: 4px;
+    padding-bottom: 20px;
+    padding-left: 20px;
+    padding-right: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.signupPage_inputTitle {
+    font-size: 16px;
+    font-weight: 500;
+    letter-spacing: -0.02px;
+}
+
+.signupPage_input {
+    width: 100%;
+    padding: 8px;
+
+    border-radius: 4px;
+    border: 1px solid var(--green-900);
+    outline: 0;
+}
+
+.custom_select {
+    border-radius: 0;
+    font-size: 14px;
+    background-color: var(--green-50);
+}
+
+.signupPage_button {
+    padding: 8px;
+
+    font-size: 16px;
+    font-weight: 500;
+    background-color: var(--green-200);
+    border-radius: 4px;
+    border: 1px solid var(--green-200);
+    cursor: pointer;
+
+    transition: 400ms ease-in-out;
+}
+
+.signupPage_button:hover {
+    opacity: 0.8;
+}
+
+.signupPage_finalLinks {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.signupPage_finalLinks .linkfinal{
+    color: var(--green-900);
+    text-decoration: none;
+
+    transition: 400ms;
+}
+
+.signupPage_finalLinks .linkfinal:hover {
+    color: var(--green-1800);
+}
+
+
+.signupPage_container_left {
+    min-width: 540px;
+    padding: 46px 38px;
+
+    display: flex;
+    flex-direction: column;
+}
+
+.signupPage_left_title {
+    font-size: 24px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    padding-bottom: 20px;
+}
+
+.signupPage_left_mini {
+    padding-top: 4px;
+    padding-bottom: 20px;
+}
+
+.signupPage_left_mini_title {
+    font-size: 20px;
+    font-weight: 500;
+    color: var(--green-1200);
+}
+
+.signupPage_left_mini_desc {
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: 1px;
+}

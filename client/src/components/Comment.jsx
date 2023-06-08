@@ -80,12 +80,12 @@ export const Comment = ({
     let timeAgo;
     if (hourDiff < 1) {
       const minuteDiff = Math.floor((currentDate - commentDate) / (1000 * 60));
-      return (timeAgo = `${minuteDiff} minutes ago`);
+      return (timeAgo = `Comentado hace ${minuteDiff} minutos.`);
     } else if (hourDiff < 24) {
-      return (timeAgo = `${hourDiff} hours ago`);
+      return (timeAgo = `Comentado hace ${hourDiff} horas.`);
     } else {
       const dayDiff = Math.floor(hourDiff / 24);
-      return (timeAgo = `${dayDiff} days ago`);
+      return (timeAgo = `Comentado hace ${dayDiff} días.`);
     }
   };
   const submitHandler = async (e) => {
@@ -94,37 +94,33 @@ export const Comment = ({
       return setModal(true);
     }
 
-    const res = await axios.post(
-      "http://localhost:8000/createComment",
-      {
-        body: comment,
-        post: postId,
-        parentCommentId: parentComment._id ? parentComment._id : null,
+    const res = await axios.post("http://localhost:8000/createComment", {
+      body: comment,
+      post: postId,
+      parentCommentId: parentComment._id ? parentComment._id : null,
+    }, {
+      headers: {
+        Authorization: token,
       },
-      {
-        headers: {
-          Authorization: token,
-        },
-      }
-    );
+    });
     setNotify(res.data.message);
     setComment("");
     setIsReply(false);
     fetchComments();
   };
   return (
-    <div className='flex flex-col border-l-2 border-gray-400  '>
+    <div className='flex flex-col'>
       {showNotify && (
-        <div className='fixed inset-x-0 bottom-0 flex justify-center items-end mb-6 z-50 '>
-          <div className='border-2 border-blue-500 py-2 px-5 bg-blue-50 text-lg  '>
+        <div className='fixed inset-x-0 bottom-0 flex justify-center items-end mb-6 z-50'>
+          <div className='border-2 border-blue-500 py-2 px-5 bg-blue-50 text-lg '>
             {notify}
           </div>
         </div>
       )}
-      <div className='border-2 border-l-0 border-gray-400 flex p-1 mb-2'>
+      <div className='border-2 border-l-1 flex p-1 mb-2 border-green-600'>
         <div
           onClick={(e) => e.stopPropagation()}
-          className='bg-gray-50 flex flex-col justify-start text-center p-2 '
+          className='flex flex-col justify-start text-center p-2 '
         >
           <button
             className='hover:bg-gray-200'
@@ -171,7 +167,6 @@ export const Comment = ({
         </div>
         <div>
           <div className='flex  items-center'>
-            <div className='mr-1'>{username}</div>
             <div className='text-gray-600 text-sm '>{commentDate()}</div>
           </div>
           <div>{parentComment.body}</div>
@@ -182,7 +177,7 @@ export const Comment = ({
             <i className='flex text-center justify-center items-center pr-1'>
               <BsChatLeft />
             </i>
-            <button className='text-gray-600'>Reply</button>
+            <button className='text-gray-600'>Responder</button>
           </div>
         </div>
       </div>
@@ -197,7 +192,7 @@ export const Comment = ({
             className='border-2 border-gray-200 p-2'
             cols='70'
             rows='5'
-            placeholder='What are your thoughts'
+            placeholder='Comenta la publicación...'
           ></textarea>
           <button
             disabled={disabled}
@@ -207,7 +202,7 @@ export const Comment = ({
                 : "cursor-not-allowed bg-gray-400 rounded-lg mt-1 py-1"
             }
           >
-            Reply
+            Responder
           </button>
         </form>
       )}

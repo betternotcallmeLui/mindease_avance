@@ -26,7 +26,7 @@ exports.createComment = async (req, res) => {
       await parentComment.save();
       res
         .status(201)
-        .json({ savedSubcomment, message: "Subcomment created successfully" });
+        .json({ savedSubcomment, message: "Subcomentario creado con éxito." });
       return;
     }
 
@@ -42,13 +42,14 @@ exports.createComment = async (req, res) => {
 
     await relatedPost.save();
     await comment.save();
-    res.status(201).json({ message: "Comment created successfully" });
+    res.status(201).json({ message: "Comentario creado con éxito." });
   } catch (error) {
     res
       .status(400)
-      .json({ error: error.message, message: "Something went wrong" });
+      .json({ error: error.message, message: "Algo va mal." });
   }
 };
+
 exports.getComments = async (req, res) => {
   const { postId } = req.params;
   try {
@@ -66,7 +67,7 @@ exports.commentVote = async (req, res) => {
     const comment = await CommentModel.findById({ _id: commentId });
 
     if (!comment) {
-      return res.status(404).json({ message: "Comment not found" });
+      return res.status(404).json({ message: "Comentario no encontrado." });
     }
 
     const alreadyVoted = comment.votedBy.some(
@@ -94,7 +95,7 @@ exports.commentVote = async (req, res) => {
         await CommentModel.findByIdAndUpdate(filter, update);
 
         await comment.save();
-        res.status(200).json({ comment, message: "Comment updated" });
+        res.status(200).json({ comment, message: "Comentario actualizado." });
       } else {
         if (voteType === "upvote") {
           comment.vote += 2;
@@ -108,7 +109,7 @@ exports.commentVote = async (req, res) => {
         );
         comment.votedBy[index].voteType = voteType;
         await comment.save();
-        res.status(200).json({ comment, message: "Comment updated" });
+        res.status(200).json({ comment, message: "Comentario actualizado." });
       }
     } else {
       comment.votedBy.push({ user: user._id, voteType: voteType });
@@ -121,7 +122,7 @@ exports.commentVote = async (req, res) => {
       }
 
       await comment.save();
-      res.status(200).json({ comment, message: "Comment updated" });
+      res.status(200).json({ comment, message: "Comentario actualizado." });
     }
   } catch (error) {
     res.status(500).json({ error: error.message });

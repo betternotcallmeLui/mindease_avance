@@ -1,0 +1,36 @@
+.me_profilePage {
+    width: 100%;
+}
+
+.profilePage {
+    max-width: calc(1080px + 32px);
+    margin: 0 auto;
+    padding: 100px 16px;
+}
+
+.profilePage_container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    border: 1px solid var(--green-800);
+}
+
+.profilePage_username span {
+    font-weight: 600;
+}
+
+.profilePage_title {
+    font-size: 30px;
+    font-weight: 600;
+}
+
+.profileButton {
+    max-height: 50px;
+}
+
+.profileButtons_container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}

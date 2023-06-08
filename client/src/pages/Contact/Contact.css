@@ -1,0 +1,48 @@
+.me_contactPage {
+    width: 100%;
+}
+
+.contactPage {
+    max-width: calc(1080px + 32px);
+    padding: 100px 16px;
+    margin: 0 auto;
+}
+
+.contactPage_title {
+    font-size: 30px;
+    font-weight: 600;
+    letter-spacing: -0.02px;
+    background-color: var(--green-400);
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+.contactPage_general {
+    display: flex;
+    flex-direction: column;
+}
+
+.contactPage_contacts {
+    font-size: 22px;
+    font-weight: 600;
+    letter-spacing: 0.02px;
+    padding-bottom: 5px;
+}
+
+.contact_link {
+    display: flex;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+.contact_link p {
+    font-size: 18px;
+    font-weight: 500;
+}
+
+.contact_link a {
+    font-size: 18px;
+    font-weight: 500;
+    text-decoration: none;
+    color: var(--green-1200);
+}

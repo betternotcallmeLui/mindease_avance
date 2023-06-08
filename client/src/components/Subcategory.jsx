@@ -21,13 +21,14 @@ export const Subcategory = ({ setModal, isLoggedIn }) => {
       <SideBar />
       <div className='pt-20 lg:ml-56 bg-gray-200'>
         <h1 className='md:w-[650px] md:mx-auto mb-2 text-xl font-semibold'>
-          r/{subcategory}
+          {subcategory}
         </h1>
-        {posts.map((post) => (
+        {posts.map((post, index) => (
           <Post
             post={post}
             setModal={setModal}
             isLoggedIn={isLoggedIn}
+            key={index}
             fetchData={fetchData}
           />
         ))}

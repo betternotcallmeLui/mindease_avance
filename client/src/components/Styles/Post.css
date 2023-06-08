@@ -1,0 +1,4 @@
+.post_container_post {
+    background-color: var(--green-50);
+    border: 1px solid var(--green-50);
+}

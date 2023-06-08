@@ -1,4 +1,3 @@
-import axios from "axios";
 import { useEffect, useState } from "react";
 
 import { Post } from "./Post";
@@ -26,7 +25,7 @@ export const Posts = ({ isLoggedIn, setModal, sort, setSort }) => {
   };
 
   return (
-    <div className='sm:mx-5 '>
+    <div className="">
       <Filter sort={sort} setSort={setSort} />
       {posts.map((post) => {
         return (

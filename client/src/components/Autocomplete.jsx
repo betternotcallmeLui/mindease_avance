@@ -48,18 +48,18 @@ export const Autocomplete = ({ focus, topic, setTopic, refOne }) => {
         <input
           value={value}
           type='text'
-          placeholder='Choose a topic'
+          placeholder='Elige una categoría'
           onChange={handleChange}
-          className=' pl-10 flex  flex-grow h-9'
+          className=' pl-10 flex flex-grow h-9 autocomplete_sub'
           ref={refOne}
         />
       </div>
 
       {focus && (
-        <ul className='bg-white absolute overflow-auto w-full p-2 z-10 border-gray-200 border-2 '>
+        <ul className='bg-white absolute overflow-auto w-full p-2 z-10 subcategories_menu'>
           {filtred?.map((option) => (
             <li
-              className='border-b border-gray-200 p-2 cursor-pointer '
+              className='p-2 cursor-pointer subcategories_selection'
               key={option._id}
               onClick={() => handleSelect(option.category)}
             >

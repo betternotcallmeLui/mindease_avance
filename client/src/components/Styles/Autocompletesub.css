@@ -1,0 +1,17 @@
+.autocomplete_sub {
+    border: 1px solid var(--green-800);
+    border-radius: 6px;
+    outline: none;
+}
+
+.subcategories_menu {
+    border: 1px solid var(--green-800);
+}
+
+.subcategories_selection {
+    transition: 400ms;
+}
+
+.subcategories_selection:hover {
+    background-color: var(--green-100);
+}

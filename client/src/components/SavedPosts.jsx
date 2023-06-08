@@ -25,7 +25,7 @@ export const SavedPosts = ({ setModal, isLoggedIn }) => {
       <SideBar />
       <div className='pt-20 md:ml-32 bg-gray-200 '>
         <h1 className='md:w-[650px] md:mx-auto text-xl mb-2 font-semibold'>
-          Saved Posts
+          Posts guardados
         </h1>
         {posts.map((post) => (
           <Post

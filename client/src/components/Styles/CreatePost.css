@@ -1,0 +1,26 @@
+.input_createPost {
+    border: 1px solid var(--green-800);
+    outline: none;
+}
+
+.button_createPost {
+    background-color: var(--green-800);
+    padding: 4px;
+    border: none;
+    border-radius: 16px;
+
+    transition: 400ms;
+}
+
+.button_createPost:hover {
+    opacity: 0.8;
+}
+
+.button_createPost_disabled {
+    background-color: rgb(180, 180, 180);
+    padding: 4px;
+    border: none;
+    border-radius: 16px;
+
+    transition: 400ms;
+}

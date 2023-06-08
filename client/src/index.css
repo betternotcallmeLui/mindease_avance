@@ -1,9 +1,53 @@
-@import url("https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
 @layer utilities {
   .my-input {
     @apply border;
   }
+}
+
+
+:root {
+  --green-50: #D8F3DC;
+  --green-100: #C8ECD2;
+  --green-200: #B7E4C7;
+  --green-300: #A6DDBD;
+  --green-400: #95D5B2;
+  --green-500: #85CEA8;
+  --green-600: #74C69D;
+  --green-700: #63BF93;
+  --green-800: #52B788;
+  --green-900: #4EAE81;
+  --green-1000: #49A47A;
+  --green-1100: #459B73;
+  --green-1200: #40916C;
+  --green-1300: #3C8865;
+  --green-1400: #377E5E;
+  --green-1500: #327457;
+  --green-1600: #2D6A4F;
+  --green-1700: #296148;
+  --green-1800: #245741;
+  --green-1900: #204D3A;
+  --green-2000: #1B4332;
+  --green-2100: #173A2B;
+  --green-2200: #123024;
+  --green-2300: #0D261D;
+  --green-2400: #0B2119;
+  --green-2500: #081C15;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  font-family: 'Raleway', sans-serif;
+  color: var(--green-2500);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
 }

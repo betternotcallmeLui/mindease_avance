@@ -2,6 +2,8 @@ import { useEffect, useState } from "react";
 import { BsSearch } from "react-icons/bs";
 import axios from "axios";
 
+import './Styles/Autocompletesub.css';
+
 export const AutocompleteSub = ({ refTwo, focus, topic, setSubcategory }) => {
   const [value, setValue] = useState("");
   const [data, setData] = useState([]);
@@ -55,19 +57,19 @@ export const AutocompleteSub = ({ refTwo, focus, topic, setSubcategory }) => {
         <input
           value={value}
           type='text'
-          placeholder='Choose a subcategory'
+          placeholder='Elige una subcategoría.'
           onChange={handleChange}
-          className=' pl-10 flex  flex-grow h-9'
+          className=' pl-10 flex flex-grow h-9 autocomplete_sub'
           ref={refTwo}
         />
       </div>
 
       {focus && (
-        <ul className='bg-white absolute overflow-auto w-full p-2 z-10 border-gray-200 border-2 '>
-          {filtred?.map((option) => (
+        <ul className='bg-white absolute overflow-auto w-full p-2 z-20 subcategories_menu'>
+          {filtred?.map((option, index) => (
             <li
-              className='border-b border-gray-200 p-2 cursor-pointer '
-              key={option._id}
+              className='p-2 cursor-pointer subcategories_selection'
+              key={index}
               onClick={() => handleSelect(option)}
             >
               {option}

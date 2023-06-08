@@ -1,0 +1,20 @@
+.mindblog_container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.blog_container {
+    padding: 20px;
+    border: 1px solid var(--green-600);
+}
+
+.blog_title {
+    font-size: 22px;
+    font-weight: 600;
+}
+
+.blog_content {
+    font-size: 16px;
+    font-weight: 500;
+}

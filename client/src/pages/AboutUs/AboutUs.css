@@ -1,0 +1,18 @@
+.me_aboutus {
+    width: 100%;
+}
+
+.aboutus {
+    max-width: calc(1080px + 32px);
+    margin: 0 auto;
+    padding: 100px 16px;
+}
+
+.aboutus_title {
+    font-size: 30px;
+    font-weight: 600;
+    letter-spacing: -0.02px;
+    background-color: var(--green-400);
+    padding: 20px;
+    margin-bottom: 20px;
+}

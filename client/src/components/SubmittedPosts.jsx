@@ -26,7 +26,7 @@ export const SubmittedPosts = ({ setModal, isLoggedIn }) => {
       <SideBar />
       <div className='pt-20 bg-gray-200 md:ml-32'>
         <h1 className='md:w-[650px] md:mx-auto text-xl mb-2 font-semibold'>
-          Your Posts
+          Tus posts
         </h1>
         {posts.map((post) => (
           <Post

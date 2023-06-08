@@ -1,11 +1,9 @@
-import { CreatePost } from "./CreatePost";
-import { Filter } from "./Filter";
 import { Posts } from "./Posts";
 import { SideBar } from "./Sidebar";
 import { Link } from "react-router-dom";
 import { BsPlusLg } from "react-icons/bs";
 
-export const HomePage = ({ isLoggedIn, modal, setModal, sort, setSort }) => {
+export const MindCommunity = ({ isLoggedIn, modal, setModal, sort, setSort }) => {
   return (
     <div className='flex h-auto bg-gray-200  flex-col flex-grow lg:flex-row  '>
       <SideBar />
@@ -18,7 +16,7 @@ export const HomePage = ({ isLoggedIn, modal, setModal, sort, setSort }) => {
               </i>
               <input
                 type='text'
-                placeholder='Create Post'
+                placeholder='Crea un nuevo post.'
                 className='hover:border-blue-300 bg-gray-50 border-2 border-gray-200 w-full mr-4 my-1 px-3 py-1'
               />
             </div>

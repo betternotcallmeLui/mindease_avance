@@ -1,0 +1,10 @@
+.me_community {
+    width: 100%;
+}
+
+.community {
+    max-width: calc(1080px + 32px);
+    position: relative;
+    margin: 0 auto;
+    padding: 100px 16px;
+}

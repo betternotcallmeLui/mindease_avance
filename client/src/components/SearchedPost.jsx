@@ -29,7 +29,7 @@ export const SearchedPost = ({ setModal, isLoggedIn }) => {
       <SideBar />
       <div className='pt-20 '>
         <h1 className='text-xl mb-4 md:w-[650px] md:mx-auto'>
-          {`Search Results of`} {<span className='font-semibold'>{query}</span>}
+          {`Resultados de `} {<span className='font-semibold'>{query}</span>}
         </h1>
         {notify && (
           <div className='text-xl mb-4 md:w-[650px] md:mx-auto'> {notify} </div>

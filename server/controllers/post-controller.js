@@ -1,6 +1,6 @@
 const CategoryModel = require("../models/CategoryModel");
 const PostModel = require("../models/PostModel");
-const UserModel = require("../models/UserModel");
+const UserModel = require("../models/user.model");
 
 exports.createPost = async (req, res) => {
   const { body, category, subcategory, title } = req.body;
@@ -32,11 +32,11 @@ exports.createPost = async (req, res) => {
 
     res
       .status(201)
-      .json({ success: true, message: "Post created successfully" });
+      .json({ success: true, message: "Post creado con éxito" });
   } catch (error) {
     res.status(500).json({
       error: error.message,
-      message: "There is no category or subcategory like this",
+      message: "No existe ninguna categoría como esa.",
     });
   }
 };
@@ -72,7 +72,7 @@ exports.vote = async (req, res) => {
     const post = await PostModel.findById({ _id: postId });
 
     if (!post) {
-      return res.status(404).json({ message: "Post not found" });
+      return res.status(404).json({ message: "Post no encontrado." });
     }
 
     const alreadyVoted = post.votedBy.some(
@@ -100,7 +100,7 @@ exports.vote = async (req, res) => {
         await PostModel.findByIdAndUpdate(filter, update);
 
         await post.save();
-        res.status(200).json({ post, message: "Post updated" });
+        res.status(200).json({ post, message: "Post actualizado." });
       } else {
         if (voteType === "upvote") {
           post.vote += 2;
@@ -114,7 +114,7 @@ exports.vote = async (req, res) => {
         );
         post.votedBy[index].voteType = voteType;
         await post.save();
-        res.status(200).json({ post, message: "Post updated" });
+        res.status(200).json({ post, message: "Post actualizado." });
       }
     } else {
       post.votedBy.push({ user: user._id, voteType: voteType });
@@ -127,7 +127,7 @@ exports.vote = async (req, res) => {
       }
 
       await post.save();
-      res.status(200).json({ post, message: "Post updated" });
+      res.status(200).json({ post, message: "Post actualizado." });
     }
   } catch (error) {
     res.status(500).json({ error: error.message });
@@ -139,17 +139,17 @@ exports.savePost = async (req, res) => {
   try {
     const post = await PostModel.findById({ _id: postId });
     if (!post) {
-      return res.status(404).json({ message: "Post not found" });
+      return res.status(404).json({ message: "Post no encontrado." });
     }
     if (user.savedPosts.includes(postId)) {
       const index = user.savedPosts.indexOf(postId);
       user.savedPosts.splice(index, 1);
       await user.save();
-      return res.status(200).json({ user, message: "Post unsaved" });
+      return res.status(200).json({ user, message: "Se ha quitado el post de Guardados." });
     }
     user.savedPosts.push(postId);
     await user.save();
-    res.status(200).json({ user, message: "Post saved" });
+    res.status(200).json({ user, message: "Post guardado." });
   } catch (error) {
     console.log(error.message);
     res.status(400).json({ message: error.message });
@@ -169,7 +169,7 @@ exports.getOnePost = async (req, res) => {
     const post = await PostModel.findById({ _id: postId });
     res.status(200).json(post);
   } catch (error) {
-    res.status(404).json({ message: "Post not found" });
+    res.status(404).json({ message: "Post no encontrado." });
   }
 };
 exports.getOneSubCategory = async (req, res) => {
@@ -179,7 +179,7 @@ exports.getOneSubCategory = async (req, res) => {
 
     res.status(200).json(posts);
   } catch (error) {
-    res.status(404).json({ message: "Post not found" });
+    res.status(404).json({ message: "Post no encontrado." });
   }
 };
 exports.getSavedPosts = async (req, res) => {
@@ -192,7 +192,7 @@ exports.getSavedPosts = async (req, res) => {
 
     res.status(200).json(posts);
   } catch (error) {
-    res.status(404).json({ message: "Something went wrong" });
+    res.status(404).json({ message: "Algo fue mal." });
   }
 };
 exports.getSubmittedPosts = async (req, res) => {
@@ -204,7 +204,7 @@ exports.getSubmittedPosts = async (req, res) => {
     );
     res.status(200).json(posts);
   } catch (error) {
-    res.status(404).json({ message: "Something went wrong" });
+    res.status(404).json({ message: "Algo fue mal." });
   }
 };
 exports.getSearchedPost = async (req, res) => {
@@ -220,7 +220,7 @@ exports.getSearchedPost = async (req, res) => {
     if (posts.length <= 0) {
       return res
         .status(404)
-        .json({ message: `Hm... we couldn't find any results for ${query}` });
+        .json({ message: `No se encontraron resultados a: ${query}` });
     }
     res.status(200).json({ success: true, posts });
   } catch (error) {
